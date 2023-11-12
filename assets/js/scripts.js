@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
   var progressBar = document.querySelectorAll(".progress-bar");
   const time = 1000;
 
@@ -9,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   progressBar.forEach(function (i) {
     let count = 0;
+    let velocidad = 0;
     let label = i.children[0];
     let line = i.children[1];
 
@@ -16,18 +16,38 @@ document.addEventListener("DOMContentLoaded", function () {
     let lineCount = line.children[0];
 
     let value = line.style.width.substr(0, line.style.width.length - 2) / 150;
+
     let runTime = calculateTime(time, dataCount);
 
     let animationLineCount = setInterval(function () {
-
       if (count < dataCount) {
         count++;
-        label.innerHTML = count + "%";
+        velocidad++;
+        if (screen.width <= 599) {
+          if (count <= 30) {
+            label.innerHTML = count + "%";
+          } else {
+            console.log("entre");
+            let velocidad = 100;
+            label.innerHTML = velocidad + "%";
+          }
+        }
+
+        if (screen.width > 599) {
+          if (count <= 100) {
+            label.innerHTML = count + "%";
+          } else {
+            console.log("entre");
+            let velocidad = 100;
+            label.innerHTML = velocidad + "%";
+          }
+        }
+
         lineCount.style.width = count * value + "px";
       }
-
-    }, runTime)
+    }, runTime);
 
     console.log(value);
+    console.log(screen.width);
   });
 });
