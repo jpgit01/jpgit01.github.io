@@ -124,6 +124,30 @@ div[role="progressbar"] {
   }
 }
 
+@media only screen and (min-width: 767px) and (max-width: 1100px) {
+  div[role="progressbar"] {
+    --size: 10rem;
+    --fg: rgb(255, 151, 32);
+    --bg: rgb(252, 252, 252);
+    --pgPercentage: var(--value);
+    animation: growProgressBar 3s 1 forwards;
+    width: 0;
+    height: 0;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+        closest-side,
+        white 80%,
+        transparent 0 99.9%,
+        white 0
+      ),
+      conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: calc(var(--size) / 5);
+    color: var(--fg);
+  }
+}
+
 div[role="progressbar"]::before {
   counter-reset: percentage var(--value);
   content: counter(percentage) "%";
