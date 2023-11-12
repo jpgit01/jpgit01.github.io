@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (count < dataCount) {
         count++;
         velocidad++;
-        if (screen.width <= 599) {
+        if (screen.width <= 1000) {
           if (count <= 30) {
             label.innerHTML = count + "%";
           } else {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
-        if (screen.width > 599) {
+        if (screen.width > 1000) {
           if (count <= 100) {
             label.innerHTML = count + "%";
           } else {
