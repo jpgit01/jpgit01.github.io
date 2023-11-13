@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let dataCount = label.getAttribute("data-count");
     let lineCount = line.children[0];
 
-    let value = line.style.width.substr(0, line.style.width.length - 2) / 150;
+    let value = line.style.width.substr(0, line.style.width.length - 2) / 100;
 
     let runTime = calculateTime(time, dataCount);
 
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (count < dataCount) {
         count++;
         velocidad++;
-        if (screen.width <= 599) {
+        if (screen.width <= 1000) {
           if (count <= 30) {
             label.innerHTML = count + "%";
           } else {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
 
-        if (screen.width > 599) {
+        if (screen.width > 1000) {
           if (count <= 100) {
             label.innerHTML = count + "%";
           } else {
